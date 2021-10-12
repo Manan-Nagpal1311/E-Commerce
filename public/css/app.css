@@ -1,0 +1,17 @@
+:root{
+    --maincolor:#006d77;
+}
+
+.navbar{
+    background-color: var(--maincolor);
+    color:cornsilk;
+}
+
+main{
+    margin-top: 4.5rem;
+}
+.card{
+    padding: 10px;
+    margin:20px;
+    
+}

@@ -1,0 +1,58 @@
+<%- include("../partials/header")%>
+<%- include("../partials/navbar")%>
+
+<main class="container">
+    <%if(success && success.length)
+    {%>
+      <div class="alert alert-success mb-3" role="alert">
+        <p><%= success%></p>
+      </div>
+    <%}%>
+    <%if(error && error.length)
+    {%>
+      <div class="alert alert-success mb-3" role="alert">
+        <p><%= error%></p>
+      </div>
+    <%}%>
+    <div class="row">
+     
+       <div class="col-lg-6 "  >
+        
+        <%for(let item of user.cart){%>
+          <div class="card mb-3">
+            <img class="card-img-top" src="<%= item.img %>" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title"><%= item.name%></h4>
+              <h5 class="card-title"><%= item.price%></h5>
+              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <form action="/cart/<%= item._id %>/remove?_method=PATCH" method="POST">
+                <button type="submit" class="btn btn-success btn-small">Remove from cart</button>
+              </form>
+            </div>
+          </div>
+        <%}%>
+        
+       </div>
+       <div class="col-lg-6 mt-5"  >
+         <%total=0%>
+         <h1>Items Total</h1>
+         <ul class="list-group">
+        <%for(let item of user.cart){%>
+          <% total=total+item.price %>
+          <li class="list-group-item"><span><%= item.name %> : </span><%= item.price %></li>
+          <%}%>
+          <li class="list-group-item"><span>Total : </span><%= total %></li>
+        </ul>
+        <div class="my-3">
+        <form action="">
+          <button class="btn btn-success btn-small">Proceed To Buy</button>
+        </form>
+      </div>
+       </div>
+   
+    </div>
+
+</main>
+
+<%- include("../partials/footer") %>

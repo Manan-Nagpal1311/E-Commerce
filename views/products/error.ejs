@@ -1,0 +1,21 @@
+<%- include("../partials/header")%>
+<%- include("../partials/navbar")%>
+
+
+<div style="margin-top: 55px;">
+
+<%if(error && error.length)
+{%>
+  <div class="alert alert-success mb-3" role="alert">
+    <p><%= error%></p>
+  </div>
+<%}%>
+</div>
+
+
+
+
+
+
+
+<%- include("../partials/footer") %>

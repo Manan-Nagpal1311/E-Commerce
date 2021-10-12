@@ -1,0 +1,40 @@
+<%- include("../partials/header")%>
+<%- include("../partials/navbar")%>
+
+<main class="container">
+    <%if(success && success.length)
+    {%>
+      <div class="alert alert-success mb-3" role="alert">
+        <p><%= success%></p>
+      </div>
+    <%}%>
+    <%if(error && error.length)
+    {%>
+      <div class="alert alert-success mb-3" role="alert">
+        <p><%= error%></p>
+      </div>
+    <%}%>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1>Sign Up</h1>
+            <form action='/register' method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control"  name="username" id="username" placeholder="User name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control"  name="email" id="email" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input type="password" class="form-control"  name="password" id="password" placeholder="password">
+                </div>
+                <button type="submit" class="btn btn-success btn-small">Sign up</button>
+            </form>
+           
+        </div>
+    </div>
+</main>
+
+<%- include("../partials/footer")%>
